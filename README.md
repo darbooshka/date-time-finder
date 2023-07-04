@@ -1,9 +1,9 @@
-# date-time-finder
+# datetimefinder
 
 Usage:
 
 ```
-import "github.com/darbooshka/date-time-finder"
+import "github.com/darbooshka/datetimefinder"
 
 finder := NewDateTimeFinder()
 
