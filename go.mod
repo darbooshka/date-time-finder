@@ -1,3 +1,3 @@
-module github.com/darbooshka/date-time-finder
+module github.com/darbooshka/datetimefinder
 
 go 1.20

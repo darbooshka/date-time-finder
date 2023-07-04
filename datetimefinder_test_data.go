@@ -1,4 +1,4 @@
-package datematchgo
+package datetimefinder
 
 import (
 	"time"
