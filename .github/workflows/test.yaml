@@ -17,8 +17,7 @@ jobs:
 
       - name: Run test
         run: |
-            go get -u   github.com/jstemmer/go-junit-report/v2
-            go test -v -json ./... 2>&1 > >(tee ${{ env.TEST_REPORT }}.json) \
+            go test -v -json ./... 2>&1 > >(tee ${{ env.TEST_REPORT }}.json)
 
       - name: Convert test result
         if: success() || failure()
