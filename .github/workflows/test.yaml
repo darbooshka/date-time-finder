@@ -19,13 +19,16 @@ jobs:
         run: |
             go get -u   github.com/jstemmer/go-junit-report/v2
             go test -v -json ./... 2>&1 > >(tee ${{ env.TEST_REPORT }}.json) \
-            | \
+
+      - name: Convert test result
+        if: success() || failure()
+        run: |
+            go get -u   github.com/jstemmer/go-junit-report/v2
             go run      github.com/jstemmer/go-junit-report/v2 \
               -parser gojson \
+              -in  ${{ env.TEST_REPORT }}.json
               -out ${{ env.TEST_REPORT }}.xml \
               -set-exit-code
-            ls -la ${{ env.TEST_REPORT }}.json
-            ls -la ${{ env.TEST_REPORT }}.xml
 
       - name: Test Summary
         if: success() || failure()
