@@ -25,6 +25,11 @@ jobs:
               -out ${{ env.TEST_REPORT }}.xml \
               -set-exit-code
 
+      - run: |
+          cat ${{ env.TEST_REPORT }}.json
+          cat ${{ env.TEST_REPORT }}.xml
+        if: success() || failure()
+
       - name: Test Summary
         if: success() || failure()
         uses: test-summary/action@v1
