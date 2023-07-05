@@ -17,11 +17,11 @@ jobs:
 
       - name: Run test
         run: |
-            go test -v -json ./... 2>&1 > >(tee ${{ env.TEST_REPORT }}.json)
             go get -u   github.com/jstemmer/go-junit-report/v2
+            go test -v -json ./... 2>&1 > >(tee ${{ env.TEST_REPORT }}.json) \
+            | \
             go run      github.com/jstemmer/go-junit-report/v2 \
               -parser gojson \
-              -in  ${{ env.TEST_REPORT }}.json \
               -out ${{ env.TEST_REPORT }}.xml \
               -set-exit-code
             ls -la ${{ env.TEST_REPORT }}.json
