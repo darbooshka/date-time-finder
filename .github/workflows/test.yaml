@@ -24,11 +24,8 @@ jobs:
               -in  ${{ env.TEST_REPORT }}.json \
               -out ${{ env.TEST_REPORT }}.xml \
               -set-exit-code
-
-      - run: |
-          cat ${{ env.TEST_REPORT }}.json
-          cat ${{ env.TEST_REPORT }}.xml
-        if: success() || failure()
+            ls -la ${{ env.TEST_REPORT }}.json
+            ls -la ${{ env.TEST_REPORT }}.xml
 
       - name: Test Summary
         if: success() || failure()
