@@ -25,7 +25,7 @@ jobs:
             go get -u   github.com/jstemmer/go-junit-report/v2
             go run      github.com/jstemmer/go-junit-report/v2 \
               -parser gojson \
-              -in  ${{ env.TEST_REPORT }}.json
+              -in  ${{ env.TEST_REPORT }}.json \
               -out ${{ env.TEST_REPORT }}.xml \
               -set-exit-code
 
