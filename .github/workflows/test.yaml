@@ -38,6 +38,15 @@ jobs:
           paths: |
             ${{ env.TEST_REPORT }}.xml
 
+      - name: Test Report
+        # uses: dorny/test-reporter@v1 # default, known bug
+        uses: moudrick/test-reporter@stacktrace-split-safe-blind-fix
+        if: success() || failure()       # run this step even if previous step failed
+        with:
+          name: ${{ env.TEST_REPORT }}       # Name of the check run which will be created
+          path: ${{ env.TEST_REPORT }}*.xml   # Path to test results
+          reporter: jest-junit               # Format of test results
+
       - name: Bump version and push tag on green tests in main
         # if: ${{ success() && github.ref == 'refs/heads/main' }}
         uses: anothrNick/github-tag-action@1.67.0 # Don't use @master or @v1 unless you're happy to test the latest version
