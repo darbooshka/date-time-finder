@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TEST_REPORT: test-report
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout
