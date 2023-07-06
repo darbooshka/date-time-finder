@@ -9,8 +9,6 @@ jobs:
     env:
       TEST_REPORT: test-report
 
-
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -53,5 +51,5 @@ jobs:
         env:
           WITH_V: true
           DEFAULT_BUMP: none
-          PRERELEASE: true
+          PRERELEASE: false
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # if you don't want to set write permissions use a PAT token
