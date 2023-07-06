@@ -8,22 +8,22 @@ jobs:
     runs-on: ubuntu-latest
     env:
       TEST_REPORT: test-report
-    permissions:
-      actions: write
-      checks: write
+    # permissions:
+    #   actions: write
+    #   checks: write
 
-      contents: write
+    #   contents: write
 
-      deployments: write
-      discussions: write
-      id-token: write
-      issues: write
-      packages: write
-      pages: write
-      pull-requests: write
-      repository-projects: write
-      security-events: write
-      statuses: write
+    #   deployments: write
+    #   discussions: write
+    #   id-token: write
+    #   issues: write
+    #   packages: write
+    #   pages: write
+    #   pull-requests: write
+    #   repository-projects: write
+    #   security-events: write
+    #   statuses: write
 
 
     steps:
@@ -61,8 +61,8 @@ jobs:
           name: ${{ env.TEST_REPORT }}       # Name of the check run which will be created
           path: ${{ env.TEST_REPORT }}*.xml  # Path to test results
           reporter: jest-junit               # Format of test results
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # if you don't want to set write permissions use a PAT token
+        # env:
+        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # if you don't want to set write permissions use a PAT token
 
       - name: Bump version and push tag on green tests in main
         # if: ${{ success() && github.ref == 'refs/heads/main' }}
@@ -71,4 +71,4 @@ jobs:
           WITH_V: true
           DEFAULT_BUMP: none
           PRERELEASE: true
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # if you don't want to set write permissions use a PAT token
+          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # if you don't want to set write permissions use a PAT token
