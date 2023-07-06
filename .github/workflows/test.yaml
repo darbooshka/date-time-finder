@@ -35,3 +35,11 @@ jobs:
         with:
           paths: |
             ${{ env.TEST_REPORT }}.xml
+
+      - name: Bump version and push tag on green tests in main
+        # if: ${{ success() && github.ref == 'refs/heads/main' }}
+        uses: anothrNick/github-tag-action@1.67.0 # Don't use @master or @v1 unless you're happy to test the latest version
+        env:
+          WITH_V: true
+          DEFAULT_BUMP: none
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # if you don't want to set write permissions use a PAT token
