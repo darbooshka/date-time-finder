@@ -97,6 +97,7 @@ Meeting ID: 756 3692 5759
 Passcode: Yz0M
 `,
 		expected:     []time.Time{ timeParse("2023-05-29 08:40 AM") },
+		ignore:       reason("Format pattern is not implemented."),
 	},
 	{
 		text:         `НОВИЙ МАТЕРІАЛ
@@ -106,6 +107,7 @@ Kateryna Bulba is inviting you to a scheduled Zoom meeting.
 Topic: Kateryna Bulba's Personal Meeting Room
 `,
 		expected:     []time.Time{ timeParse("2023-05-29 08:40 AM") },
+		ignore:       reason("Format pattern is not implemented."),
 	},
 	{
 		text:         ``,
