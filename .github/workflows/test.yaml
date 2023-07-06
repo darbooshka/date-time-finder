@@ -42,7 +42,7 @@ jobs:
         if: success() || failure()       # run this step even if previous step failed
         with:
           name: ${{ env.TEST_REPORT }}       # Name of the check run which will be created
-          path: ${{ env.TEST_REPORT }}.xml   # Path to test results
+          path: ${{ env.TEST_REPORT }}*.xml   # Path to test results
           reporter: jest-junit               # Format of test results
 
       - name: Annotate tests
