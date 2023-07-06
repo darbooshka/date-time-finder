@@ -20,7 +20,7 @@ func (d *DateTimeFinder) FindDateTime(text string) []time.Time {
 		replaceRussianMonths(text))
 
 	uniqueTimes := make(map[time.Time]bool)
-	var allTimes []time.Time
+	var allTimes []time.Time // = []time.Time{}
 
 	// Iterate over each component and collect the time arrays
 	for _, component := range d.components {

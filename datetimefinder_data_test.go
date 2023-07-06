@@ -43,7 +43,7 @@ Please be on time.`,
 	},
 	{
 		text:         ``,
-		expected:     []time.Time{},
+		expected:     nil, // []time.Time{},
 	},
 	{
 		text:         `Фізика Тема: Розв'язування задач. Время: 29 May 2023 01:30 PM Киев Подключиться к конференции Zoom`,
@@ -107,20 +107,20 @@ Topic: Kateryna Bulba's Personal Meeting Room
 `,
 		expected:     []time.Time{ timeParse("2023-05-29 08:40 AM") },
 	},
-	{
-		text:         ``,
-		expected:     []time.Time{},
-	},
-	{
-		text:         ``,
-		expected:     []time.Time{},
-	},
-			{
-		text:         ``,
-		expected:     []time.Time{},
-	},
-	{
-		text:         ``,
-		expected:     []time.Time{},
-	},
+	// {
+	// 	text:         ``,
+	// 	expected:     []time.Time{},
+	// },
+	// {
+	// 	text:         ``,
+	// 	expected:     []time.Time{},
+	// },
+	// 		{
+	// 	text:         ``,
+	// 	expected:     []time.Time{},
+	// },
+	// {
+	// 	text:         ``,
+	// 	expected:     []time.Time{},
+	// },
 }

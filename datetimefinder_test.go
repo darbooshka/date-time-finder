@@ -4,6 +4,7 @@ import (
 	"strings"
 
 	"testing"
+	"github.com/stretchr/testify/assert"
 )
 
 type testCase[expected any] struct {
@@ -43,18 +44,20 @@ func TestDateTimeFinder_FindDateTime(t *testing.T) {
 			finder := NewDateTimeFinder()
 			result := finder.FindDateTime(tc.text)
 
-			if len(result) != len(tc.expected) {
-				t.Errorf("Expected %d date-time mention(s), but got %d", len(tc.expected), len(result))
-			}
+			assert.Equal(t, tc.expected, result)
 
-			for i, match := range result {
-				if i >= len(tc.expected) {
-					break
-				}
-				if match != tc.expected[i] {
-					t.Errorf("Expected '%s', but got '%s'", tc.expected[i], match)
-				}
-			}
+			// if len(result) != len(tc.expected) {
+			// 	t.Errorf("Expected %d date-time mention(s), but got %d", len(tc.expected), len(result))
+			// }
+
+			// for i, match := range result {
+			// 	if i >= len(tc.expected) {
+			// 		break
+			// 	}
+			// 	if match != tc.expected[i] {
+			// 		t.Errorf("Expected '%s', but got '%s'", tc.expected[i], match)
+			// 	}
+			// }
 		})
 	}
 }
