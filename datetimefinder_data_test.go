@@ -43,7 +43,7 @@ Please be on time.`,
 	},
 	{
 		text:         ``,
-		expected:     nil, // []time.Time{},
+		expected:     []time.Time{}, // nil, //
 	},
 	{
 		text:         `Фізика Тема: Розв'язування задач. Время: 29 May 2023 01:30 PM Киев Подключиться к конференции Zoom`,
